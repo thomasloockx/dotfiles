@@ -61,3 +61,5 @@ map <F12> :source ~/.vimrc<CR>
 map <silent> ,/ :nohlsearch<CR>
 " Toggle tag list
 map ,t :TlistToggle<CR>
+" use the ruler
+set ruler
