@@ -63,3 +63,5 @@ map <silent> ,/ :nohlsearch<CR>
 map ,t :TlistToggle<CR>
 " use the ruler
 set ruler
+" Use pathogen to manage vim plugins
+call pathogen#infect()
