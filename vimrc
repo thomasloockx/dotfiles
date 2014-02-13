@@ -2,7 +2,7 @@
 " .vimrc - Thomas Loockx
 " 
 " * alternate plugin to switch between header files and implemention files.
-" * taglist plugin to show tags on a page.
+" * tagbar plugin to show tags on a page.
 " * snippets plugin for snippets
 " * CommandT for file navigation.
 " 
@@ -62,6 +62,8 @@ map <silent> ,/ :nohlsearch<CR>
 set ruler
 " insert my marker
 map ,m i// DO_NOT_COMMIT(tloockx)<ESC>
+" ignore some files in vim
+set wildignore+=*.o,.svn,build/**
 
 " *** use idutils to grep ***
 set grepprg='gid'
@@ -79,10 +81,11 @@ call pathogen#infect()
 " *** CommandT configuration ***
 " shortcut for CommandT
 map ,f :CommandT<CR>
+"
 
-" *** taglist.vim configuration ***
+" *** tagbar.vim configuration ***
 " map the toggle command
-map ,t :TlistToggle<CR>
+map ,t :TagbarToggle<CR>
 " only show tags for the current buffer
 let Tlist_Show_One_File = 1
 " highlight the current tag
