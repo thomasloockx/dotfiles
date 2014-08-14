@@ -15,7 +15,9 @@ cd ~/.vim/bundle
 
 # list of repos where we fetch my other plugins, add new repos here
 REPOS='https://github.com/vim-scripts/a.vim.git
-       git://git.wincent.com/command-t.git'
+       git://git.wincent.com/command-t.git
+       https://github.com/godlygeek/tabular.git
+       https://github.com/majutsushi/tagbar.git'
 
 for REPO in $REPOS; do
     # extract the plugin's name from the URL 
