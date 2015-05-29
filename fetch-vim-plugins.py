@@ -5,11 +5,10 @@
 #
 
 import os
-import pycurl
 import re
 
-auto_load_dir = os.path.abspath("/home/thomas/.vim/autoload")
-pathogen_bundles_dir = os.path.abspath("/home/thomas/.vim/bundle")
+auto_load_dir = os.path.expanduser("~/.vim/autoload")
+pathogen_bundles_dir = os.path.expanduser("~/.vim/bundle")
 
 if not os.path.exists(auto_load_dir):
     os.makedirs(auto_load_dir)
@@ -17,6 +16,8 @@ if not os.path.exists(pathogen_bundles_dir):
     os.makedirs(pathogen_bundles_dir)
 
 # download & install Pathogen the mother of modern plugin management
+os.system("curl -LSso %s https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim" % os.path.join(auto_load_dir, "pathogen.vim"))
+
 if not os.path.exists(os.path.join(auto_load_dir, "pathogen.vim")):
     f = open(os.path.join(auto_load_dir, "pathogen.vim"), "wb")
     curl = pycurl.Curl()
