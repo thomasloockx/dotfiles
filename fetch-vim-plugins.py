@@ -6,6 +6,7 @@
 
 import os
 import re
+import subprocess 
 
 auto_load_dir = os.path.expanduser("~/.vim/autoload")
 pathogen_bundles_dir = os.path.expanduser("~/.vim/bundle")
@@ -29,7 +30,7 @@ if not os.path.exists(os.path.join(auto_load_dir, "pathogen.vim")):
 
 # list of repos where we fetch my other plugins - add new repos here
 repositories = [ 'https://github.com/vim-scripts/a.vim.git' ,
-                 'https://github.com/kien/ctrlp.vim.git'    ,
+                 'https://github.com/wincent/Command-T.git' ,
                  'https://github.com/godlygeek/tabular.git' ,
                  'https://github.com/majutsushi/tagbar.git' , ]
 
@@ -46,3 +47,9 @@ for repo in repositories:
         os.chdir(pathogen_bundles_dir)
         print("== Installing %s ==" % bundle)
         os.system("git clone %s" % repo)
+
+        # Command-T requires extra love
+        if bundle == "Command-T":
+            os.chdir(os.path.join(pathogen_bundles_dir, "command-t/ruby/command-t"))
+            subprocess.check_call(["ruby", "extconf.rb"])
+            subprocess.check_call(["make", "-j4"])
