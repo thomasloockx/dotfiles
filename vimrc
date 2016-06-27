@@ -75,7 +75,7 @@ map <F7> :cnext<CR>
 "---------------------------------------------------------------------------------------------------
 " Vundle configuration
 filetype off
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " list of plugins
@@ -90,7 +90,7 @@ filetype plugin on
 " *** CommandT configuration ***
 " shortcut for CommandT
 map ,f :CommandT<CR>
-"
+let g:CommandTTraverseSCM='pwd'
 
 " *** Tabular configuration ***
 map ,a= :Tabularize /=<CR>
