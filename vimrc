@@ -64,6 +64,8 @@ set ruler
 map ,m i// DO_NOT_COMMIT(tloockx)<ESC>
 " ignore some files in vim
 set wildignore+=*.o,.svn,build/**
+" make sure .md is recognized as Markdown and not Modula-2 syntax
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " *** use idutils to grep ***
 set grepprg='gid'
@@ -77,7 +79,6 @@ map ,a= :Tabularize /=<CR>
 " *** Pathogen configuration ***
 " Use pathogen to manage vim plugins
 call pathogen#infect()
-
 " *** CommandT configuration ***
 " shortcut for CommandT
 map ,f :CommandT<CR>
