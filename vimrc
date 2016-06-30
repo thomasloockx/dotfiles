@@ -73,7 +73,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " list of plugins
-Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'wincent/command-t.git'
 Plugin 'godlygeek/tabular'
 Plugin 'vim-scripts/a.vim'
 
