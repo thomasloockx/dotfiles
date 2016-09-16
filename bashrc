@@ -6,4 +6,4 @@ alias ll='ls -l'
 export EDITOR=vim
 
 # python startup file
-export PYTHONSTARTUP='~/dotfiles/pythonrc'
+export PYTHONSTARTUP='/home/thomas/dotfiles/pythonrc'
