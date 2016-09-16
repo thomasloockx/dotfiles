@@ -36,7 +36,7 @@ set comments=sl:/*,mb:*,elx:*/
 " save my marks in the viminfo file
 set viminfo='100,f1
 " show a line at column 100
-set colorcolumn=100
+set colorcolumn=80
 " more undo
 set undolevels=100
 " more cmd/search history
@@ -91,3 +91,16 @@ map ,a= :Tabularize /=<CR>
 
 " show my TODO list
 map <F2> :split~/TODO.txt<CR>
+
+" modify the settings for writing prose in the current buffer
+function! WriteProse()
+    echo "Prose"
+    setlocal textwidth=80
+    setlocal formatoptions=ant
+    setlocal colorcolumn=80
+    setlocal wrapmargin=0
+    setlocal nocindent
+    setlocal nosmartindent
+    setlocal autoindent
+endfunction
+command! Prose call WriteProse()
