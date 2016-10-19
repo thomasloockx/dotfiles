@@ -73,18 +73,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " list of plugins
-Plugin 'wincent/command-t.git'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'vim-scripts/a.vim'
 
 call vundle#end()
 
 filetype plugin on
-
-" *** CommandT configuration ***
-" shortcut for CommandT
-map ,f :CommandT<CR>
-let g:CommandTTraverseSCM='pwd'
 
 " *** Tabular configuration ***
 map ,a= :Tabularize /=<CR>
