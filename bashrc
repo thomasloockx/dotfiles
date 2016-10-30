@@ -1,5 +1,6 @@
-export PATH=~/bin/:$PATH
+export PATH="~/bin:$PATH"
 
+alias ls='ls -G'
 alias ll='ls -l'
 
 # use vim as my default editor
