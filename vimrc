@@ -15,6 +15,10 @@ set ignorecase
 " 4 spaces shift
 set shiftwidth=4
 set ts=4
+" set guifont for a nicer MacVim experience
+set guifont=Menlo:h13
+" set a nice light colorscheme
+colorscheme macvim
 " no need to escape magic tokens in regexp
 set magic
 " enable the mouse in vim
@@ -65,6 +69,8 @@ map <F5> :cfile ./build/debug_standalone/vim_quicklist.txt<CR>
 " easy quickfix list navigation
 map <F6> :cprev<CR>
 map <F7> :cnext<CR>
+" make the , key the leader
+let mapleader=','
 
 "-----------------------------------------------------------------------------
 " Vundle configuration
@@ -77,6 +83,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'vim-scripts/a.vim'
+Plugin 'vimwiki/vimwiki'
 
 call vundle#end()
 
@@ -100,3 +107,6 @@ function! WriteProse()
     setlocal autoindent
 endfunction
 command! Prose call WriteProse()
+
+" vimwiki configuration
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
