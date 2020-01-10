@@ -2,6 +2,8 @@
 
 " syntax highlighting is always nicer
 syntax enable
+" configure the color scheme
+set background=dark
 " no vi compatibility
 set nocompatible
 " line numbers
@@ -17,8 +19,6 @@ set shiftwidth=4
 set ts=4
 " set guifont for a nicer MacVim experience
 set guifont=Menlo:h13
-" set a nice light colorscheme
-colorscheme macvim
 " no need to escape magic tokens in regexp
 set magic
 " enable the mouse in vim
@@ -40,7 +40,7 @@ set comments=sl:/*,mb:*,elx:*/
 " save my marks in the viminfo file
 set viminfo='100,f1
 " show a line at column 100
-set colorcolumn=80
+set colorcolumn=120
 " more undo
 set undolevels=100
 " more cmd/search history
@@ -72,25 +72,23 @@ map <F7> :cnext<CR>
 " make the , key the leader
 let mapleader=','
 
-"-----------------------------------------------------------------------------
-" Vundle configuration
+" vim-plug configuration
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" list of plugins
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'vim-scripts/a.vim'
-Plugin 'vimwiki/vimwiki'
-
-call vundle#end()
-
+call plug#begin('~/.vim/plugged')
+Plug '~/.fzf'
+Plug 'VundleVim/Vundle.vim'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf.vim'
+Plug 'dense-analysis/ale'
+Plug 'lifepillar/vim-solarized8'
+call plug#end()
 filetype plugin on
 
-" *** Tabular configuration ***
-map ,a= :Tabularize /=<CR>
+let mapleader=','
+nmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>t :Tags<CR>
 
 " show my TODO list
 map <F2> :split~/TODO.txt<CR>
@@ -108,5 +106,9 @@ function! WriteProse()
 endfunction
 command! Prose call WriteProse()
 
-" vimwiki configuration
-let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+let g:ale_fixers = {
+\   'python': ['flake8']
+\}
+let g:ale_hover_to_preview=1
+
+colorscheme solarized8
