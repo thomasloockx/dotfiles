@@ -72,6 +72,8 @@ map <F7> :cnext<CR>
 " make the , key the leader
 let mapleader=','
 
+set rtp+=/usr/local/opt/fzf
+
 " vim-plug configuration
 filetype off
 call plug#begin('~/.vim/plugged')
@@ -81,6 +83,10 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
 Plug 'lifepillar/vim-solarized8'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'mileszs/ack.vim'
+Plug 'alok/notational-fzf-vim'
 call plug#end()
 filetype plugin on
 
@@ -89,6 +95,7 @@ nmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>t :Tags<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
 
 " show my TODO list
 map <F2> :split~/TODO.txt<CR>
@@ -106,9 +113,14 @@ function! WriteProse()
 endfunction
 command! Prose call WriteProse()
 
-let g:ale_fixers = {
-\   'python': ['flake8']
+let g:ale_linters = {
+\   'python': ['flake8'],
+\   'ruby': ['rubocop'],
 \}
-let g:ale_hover_to_preview=1
+let g:ale_fixers = {
+\   'python': ['isort']
+\}
 
-colorscheme solarized8
+colorscheme solarized
+
+let g:nv_search_paths = ['~/notes']
