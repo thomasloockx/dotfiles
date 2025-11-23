@@ -100,5 +100,9 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias claude-yolo="claude --dangerously-skip-permissions"
+alias amp-yolo="amp --dangerously-allow-all"
 
 alias cdrsdev1="cd ~/dev/Rayscaper"
+
+# amp
+export PATH="$HOME/.local/bin:$PATH"
